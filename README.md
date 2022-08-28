@@ -20,6 +20,8 @@ docker run -d \
   karurosuma/qbittorrent-ee:<arch>-latest
 ```
 
+### Docker Compose
+
 ## Web UI Login Credentials
 Scheme: `https`<br>
 Username: `admin`<br>
