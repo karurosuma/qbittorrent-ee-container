@@ -18,6 +18,6 @@ WebUI\HTTPS\Enabled=true
 WebUI\HTTPS\CertificatePath=/home/qbittorrent/.config/qBittorrent/server.crt
 WebUI\HTTPS\KeyPath=/home/qbittorrent/.config/qBittorrent/server.key
 EOF
-if
+fi
 
 /bin/qbittorrent-nox --webui-port=${WEBUI_PORT}

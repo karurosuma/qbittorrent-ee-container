@@ -11,7 +11,7 @@ RUN apk repo update && \
     curl -L -o /tmp/qb-ee.zip https://github.com/c0re100/qBittorrent-Enhanced-Edition/releases/latest/download/qbittorrent-enhanced-nox_aarch64-linux-musl_static.zip && \
     unzip /tmp/qb-ee.zip -d /bin/ && \
     chmod +x /bin/qbittorrent-nox && \
-    adduser -D -s /bin/sh qbittorrent && \
+    adduser -D -s /bin/sh -u 61001 qbittorrent && \
     mkdir -p /home/qbittorrent/downloads -p /home/qbittorrent/.config && \
     chmod +x /home/qbittorrent/run.sh && \
     chown -R qbittorrent:qbittorrent /home/qbittorrent && \
