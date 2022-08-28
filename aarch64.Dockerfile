@@ -12,7 +12,7 @@ RUN apk repo update && \
     unzip /tmp/qb-ee.zip -d /bin/ && \
     chmod +x /bin/qbittorrent-nox && \
     adduser -D -s /bin/sh qbittorrent && \
-    mkdir -p /home/qbittorrent/downloads && \
+    mkdir -p /home/qbittorrent/downloads -p /home/qbittorrent/.config && \
     chmod +x /home/qbittorrent/run.sh && \
     chown -R qbittorrent:qbittorrent /home/qbittorrent && \
     rm -rf /tmp/qb-ee.zip
