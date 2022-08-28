@@ -13,9 +13,13 @@ fi
 if [ ! -f "${CONFIG_DIR}/qBittorrent.conf" ]; then
 cat <<EOF > ${CONFIG_DIR}/qBittorrent.conf
 [BitTorrent]
-Session\Port=${INCOMING_PORT}
+Session\Port=${SESSION_PORT}
 Session\AutoBanBTPlayerPeer=true
 Session\AutoBanUnknownPeer=true
+Session\AddExtensionToIncompleteFiles=true
+Session\DefaultSavePath=/home/qbittorrent/downloads
+Session\TempPathEnabled=true
+Session\TempPath=/home/qbittorrent/downloads/incomplete
 
 [Preferences]
 General\Locale=${WEBUI_LANG}
