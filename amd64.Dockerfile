@@ -17,7 +17,5 @@ RUN apk repo update && \
     chown -R qbittorrent:qbittorrent /home/qbittorrent && \
     rm -rf /tmp/qb-ee.zip
 
-COPY --chown=qbittorrent qBittorrent.conf /home/qbittorrent/.config/qBittorrent/
-
 USER qbittorrent
 ENTRYPOINT ["/home/qbittorrent/run.sh"]
