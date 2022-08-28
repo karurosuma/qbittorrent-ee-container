@@ -21,6 +21,7 @@ docker run -d \
 ```
 
 ## Web UI Login Credentials
+Scheme: `https`<br>
 Username: `admin`<br>
 Password: `adminadmin`
 
