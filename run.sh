@@ -12,8 +12,13 @@ fi
 
 if [ ! -f "${CONFIG_DIR}/qBittorrent.conf" ]; then
 cat <<EOF > ${CONFIG_DIR}/qBittorrent.conf
+[BitTorrent]
+Session\Port=${INCOMING_PORT}
+Session\AutoBanBTPlayerPeer=true
+Session\AutoBanUnknownPeer=true
+
 [Preferences]
-Connection\PortRangeMin=${INCOMING_PORT}
+General\Locale=${WEBUI_LANG}
 WebUI\HTTPS\Enabled=true
 WebUI\HTTPS\CertificatePath=/home/qbittorrent/.config/qBittorrent/server.crt
 WebUI\HTTPS\KeyPath=/home/qbittorrent/.config/qBittorrent/server.key

@@ -10,7 +10,9 @@ docker run -d \
   --name=qbittorrent-ee \
   -e TZ=Etc/UTC \
   -e WEBUI_PORT=8080 \
-  -e INCOMING_PORT=36847 \
+  -e WEBUI_LANG=en
+  -e SESSION_PORT=36847 \
+  -e USER_ID=1000 \
   -p 8080:8080 \
   -p 36847:36847 \
   -p 36847:36847/udp \
