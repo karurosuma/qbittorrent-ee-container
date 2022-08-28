@@ -2,6 +2,7 @@ FROM arm64v8/alpine:latest
 
 ENV TZ=Etc/UTC
 ENV WEBUI_PORT=8080
+ENV INCOMING_PORT=36847
 
 COPY run.sh /home/qbittorrent/
 
