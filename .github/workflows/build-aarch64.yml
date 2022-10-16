@@ -5,6 +5,13 @@ on:
     branches: [ "main" ]
   pull_request:
     branches: [ "main" ]
+  workflow_dispatch:
+    inputs:
+      buildLatest:
+        type: boolean
+        description: 'Build the latest version'
+        required: true
+        default: false
 
 env:
   docker_hub_repo: ${{ secrets.DOCKER_HUB_USERNAME }}/qbittorrent-ee
