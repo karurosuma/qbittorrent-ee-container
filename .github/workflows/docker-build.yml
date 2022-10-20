@@ -1,4 +1,4 @@
-name: Build Image (aarch64)
+name: Build Container Image
 
 on:
   push:
@@ -15,7 +15,7 @@ on:
 
 env:
   docker_hub_repo: ${{ secrets.DOCKER_HUB_USERNAME }}/qbittorrent-ee
-  docker_tag: aarch64-latest
+  docker_tag: latest
 
 jobs:
   build:
@@ -42,5 +42,6 @@ jobs:
       uses: docker/build-push-action@v3
       with:
         push: true
-        file: aarch64.Dockerfile
+        file: Dockerfile
+        platforms: linux/amd64,linux/arm64
         tags: ${{ env.docker_hub_repo }}:${{ env.docker_tag }}
