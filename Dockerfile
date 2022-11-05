@@ -14,7 +14,7 @@ RUN apk repo update && \
     chmod +x /bin/qbittorrent-nox && \
     adduser -D -s /bin/sh -u ${OS_USER_ID} qbittorrent && \
     mkdir -p /downloads -p /config -p /home/qbittorrent/.config && \
-    ln -s -p /home/qbittorrent/.config /config && \
+    ln -s /home/qbittorrent/.config /config && \
     chown -R qbittorrent:qbittorrent /home/qbittorrent && \
     rm -rf /tmp/qb-ee.zip
 
