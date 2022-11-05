@@ -15,8 +15,9 @@ RUN apk repo update && \
     adduser -D -s /bin/sh -u ${OS_USER_ID} qbittorrent && \
     mkdir -p /downloads -p /config -p /home/qbittorrent/.config && \
     ln -s /home/qbittorrent/.config /config && \
+    chmod +x /entrypoint.sh && \
     chown -R qbittorrent:qbittorrent /home/qbittorrent && \
     rm -rf /tmp/qb-ee.zip
 
 USER qbittorrent
-ENTRYPOINT ["sh -c /entrypoint.sh"]
+ENTRYPOINT ["/entrypoint.sh"]
