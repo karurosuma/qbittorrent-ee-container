@@ -6,7 +6,6 @@ ENV WEBUI_LANG=en
 ENV SESSION_PORT=36847
 ARG OS_USER_ID=1000
 
-COPY run.sh /home/qbittorrent/
 
 RUN apk repo update && \
     apk add --no-cache ca-certificates tzdata curl openssl unzip && \
@@ -14,10 +13,11 @@ RUN apk repo update && \
     unzip /tmp/qb-ee.zip -d /bin/ && \
     chmod +x /bin/qbittorrent-nox && \
     adduser -D -s /bin/sh -u ${OS_USER_ID} qbittorrent && \
-    mkdir -p /home/qbittorrent/downloads -p /home/qbittorrent/.config && \
-    chmod +x /home/qbittorrent/run.sh && \
+    mkdir -p /downloads -p /config -p /home/qbittorrent/.config && \
+    ln -s -p /home/qbittorrent/.config /config && \
     chown -R qbittorrent:qbittorrent /home/qbittorrent && \
     rm -rf /tmp/qb-ee.zip
 
 USER qbittorrent
-ENTRYPOINT ["/home/qbittorrent/run.sh"]
+COPY entrypoint.sh /
+ENTRYPOINT ["sh /entrypoint.sh"]

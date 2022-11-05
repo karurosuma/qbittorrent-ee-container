@@ -1,6 +1,6 @@
 #!/bin/sh
 
-CONFIG_DIR=/home/qbittorrent/.config/qBittorrent
+CONFIG_DIR=/config/qBittorrent
 
 if [ ! -f "${CONFIG_DIR}" ]; then
     mkdir -p ${CONFIG_DIR}
@@ -17,15 +17,15 @@ Session\Port=${SESSION_PORT}
 Session\AutoBanBTPlayerPeer=true
 Session\AutoBanUnknownPeer=true
 Session\AddExtensionToIncompleteFiles=true
-Session\DefaultSavePath=/home/qbittorrent/downloads
+Session\DefaultSavePath=/downloads
 Session\TempPathEnabled=true
-Session\TempPath=/home/qbittorrent/downloads/incomplete
+Session\TempPath=/downloads/incomplete
 
 [Preferences]
 General\Locale=${WEBUI_LANG}
 WebUI\HTTPS\Enabled=true
-WebUI\HTTPS\CertificatePath=/home/qbittorrent/.config/qBittorrent/server.crt
-WebUI\HTTPS\KeyPath=/home/qbittorrent/.config/qBittorrent/server.key
+WebUI\HTTPS\CertificatePath=/config/qBittorrent/server.crt
+WebUI\HTTPS\KeyPath=/config/qBittorrent/server.key
 EOF
 fi
 
