@@ -13,11 +13,11 @@ RUN apk repo update && \
     unzip /tmp/qb-ee.zip -d /bin/ && \
     chmod +x /bin/qbittorrent-nox && \
     adduser -D -s /bin/sh -u ${OS_USER_ID} qbittorrent && \
-    mkdir -p /downloads -p /incomplete -p /config -p /data -p /home/qbittorrent/.config -p /home/qbittorrent/.local && \
-    ln -s /config /home/qbittorrent/.config && \
-    ln -s /data /home/qbittorrent/.local && \
+    mkdir -p /downloads -p /incomplete -p /home/qbittorrent/.config/qBittorrent -p /home/qbittorrent/.local/share/qBittorrent && \
+    ln -s /home/qbittorrent/.config/qBittorrent /config && \
+    ln -s /home/qbittorrent/.local/share/qBittorrent /data && \
     chmod +x /entrypoint.sh && \
-    chown -R qbittorrent:qbittorrent /home/qbittorrent && \
+    chown -R qbittorrent:qbittorrent /home/qbittorrent /config /downloads /incomplete /data && \
     rm -rf /tmp/qb-ee.zip
 
 VOLUME [ "/config", "/downloads", "/incomplete", "/data" ]
