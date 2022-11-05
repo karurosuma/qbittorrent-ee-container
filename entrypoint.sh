@@ -20,8 +20,8 @@ Session\TempPath=/incomplete
 [Preferences]
 General\Locale=${WEBUI_LANG}
 WebUI\HTTPS\Enabled=true
-WebUI\HTTPS\CertificatePath=/config/qBittorrent/server.crt
-WebUI\HTTPS\KeyPath=/config/qBittorrent/server.key
+WebUI\HTTPS\CertificatePath=/config/server.crt
+WebUI\HTTPS\KeyPath=/config/server.key
 EOF
 fi
 
