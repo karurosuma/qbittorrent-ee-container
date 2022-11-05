@@ -6,7 +6,7 @@ ENV WEBUI_LANG=en
 ENV SESSION_PORT=36847
 ARG OS_USER_ID=1000
 
-
+COPY entrypoint.sh /
 RUN apk repo update && \
     apk add --no-cache ca-certificates tzdata curl openssl unzip && \
     curl -L -o /tmp/qb-ee.zip https://github.com/c0re100/qBittorrent-Enhanced-Edition/releases/latest/download/qbittorrent-enhanced-nox_aarch64-linux-musl_static.zip && \
@@ -19,5 +19,4 @@ RUN apk repo update && \
     rm -rf /tmp/qb-ee.zip
 
 USER qbittorrent
-COPY entrypoint.sh /
 ENTRYPOINT ["sh /entrypoint.sh"]
