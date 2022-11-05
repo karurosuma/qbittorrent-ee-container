@@ -19,7 +19,7 @@ Session\AutoBanUnknownPeer=true
 Session\AddExtensionToIncompleteFiles=true
 Session\DefaultSavePath=/downloads
 Session\TempPathEnabled=true
-Session\TempPath=/downloads/incomplete
+Session\TempPath=/incomplete
 
 [Preferences]
 General\Locale=${WEBUI_LANG}

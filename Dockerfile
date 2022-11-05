@@ -13,11 +13,14 @@ RUN apk repo update && \
     unzip /tmp/qb-ee.zip -d /bin/ && \
     chmod +x /bin/qbittorrent-nox && \
     adduser -D -s /bin/sh -u ${OS_USER_ID} qbittorrent && \
-    mkdir -p /downloads -p /config -p /home/qbittorrent/.config && \
-    ln -s /home/qbittorrent/.config /config && \
+    mkdir -p /downloads -p /incomplete -p /config -p /data -p /home/qbittorrent/.config -p /home/qbittorrent/.local && \
+    ln -s /config /home/qbittorrent/.config && \
+    ln -s /data /home/qbittorrent/.local && \
     chmod +x /entrypoint.sh && \
     chown -R qbittorrent:qbittorrent /home/qbittorrent && \
     rm -rf /tmp/qb-ee.zip
+
+VOLUME [ "/config", "/downloads", "/incomplete", "/data" ]
 
 USER qbittorrent
 ENTRYPOINT ["/entrypoint.sh"]
