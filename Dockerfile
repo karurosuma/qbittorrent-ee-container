@@ -19,4 +19,4 @@ RUN apk repo update && \
     rm -rf /tmp/qb-ee.zip
 
 USER qbittorrent
-ENTRYPOINT ["sh /entrypoint.sh"]
+ENTRYPOINT ["sh -c /entrypoint.sh"]
