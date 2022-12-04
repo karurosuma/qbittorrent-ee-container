@@ -17,7 +17,7 @@ docker run -d \
   -v /path/to/incomplete:/incomplete \
   -v /path/to/downloads:/downloads \
   --restart unless-stopped \
-  karurosuma/qbittorrent-ee:<arch>-latest
+  karurosuma/qbittorrent-ee:latest
 ```
 
 ### Docker Compose
