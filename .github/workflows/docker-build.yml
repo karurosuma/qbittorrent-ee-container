@@ -9,7 +9,7 @@ on:
     inputs:
       buildLatest:
         type: boolean
-        description: 'Build the latest version'
+        description: 'Build without PR'
         required: true
         default: false
 
