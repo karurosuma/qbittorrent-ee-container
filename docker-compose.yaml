@@ -1,0 +1,22 @@
+version: "3.7"
+services:
+  qbittorrent-ee:
+    container_name: qbittorrent-ee
+    image: karurosuma/qbittorrent-ee:latest
+    pull_policy: always
+    environment:
+      - TZ=Etc/UTC
+      - WEBUI_PORT=8080
+      - WEBUI_LANG=en
+      - SESSION_PORT=36847
+    volumes:
+      - /path/to/config:/config
+      - /path/to/data:/data
+      - /path/to/incomplete:/incomplete
+      - /path/to/downloads:/downloads
+    user: 1000:100
+    ports:
+      - 8080:8080/tcp
+      - 36847:36847/tcp
+      - 36847:36847/udp
+    restart: unless-stopped

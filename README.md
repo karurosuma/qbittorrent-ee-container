@@ -1,8 +1,5 @@
 # qBittorrent Enhanced Edition Dockerfile
 
-## Docker Hub
-https://hub.docker.com/repository/docker/karurosuma/qbittorrent-ee
-
 ## Usage
 ### Docker CLI
 ```
@@ -15,13 +12,16 @@ docker run -d \
   -p 8080:8080 \
   -p 36847:36847 \
   -p 36847:36847/udp \
-  -v /path/to/appdata/config:/home/qbittorrent/.config\
-  -v /path/to/downloads:/home/qbittorrent/downloads\
+  -v /path/to/config:/config \
+  -v /path/to/data:/data \
+  -v /path/to/incomplete:/incomplete \
+  -v /path/to/downloads:/downloads \
   --restart unless-stopped \
   karurosuma/qbittorrent-ee:<arch>-latest
 ```
 
 ### Docker Compose
+[docker-compose.yaml](../blob/master/docker-compose.yaml)
 
 ## Web UI Login Credentials
 Scheme: `https`<br>
@@ -29,5 +29,8 @@ Username: `admin`<br>
 Password: `adminadmin`
 
 ## Replace default SSL certificate
-Replace the `server.crt` and `server.key` that located at `/home/qbittorrent/.config/qBittorrent/` with your SSL certificate and key.<br>
+Replace the `server.crt` and `server.key` that located at `/config/` with your SSL certificate and key.<br>
 By default, it will generate a private key with no passphrase and a certificate that contains subject `localhost` and `3650` days lifetime.
+
+## Docker Hub
+https://hub.docker.com/repository/docker/karurosuma/qbittorrent-ee
