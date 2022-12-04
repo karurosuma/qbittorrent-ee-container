@@ -19,7 +19,7 @@ RUN apk repo update && \
 VOLUME [ "/config", "/downloads", "/incomplete", "/data" ]
 
 FROM base AS final
-RUN if [[ "${PLATFORM}" == "x86_64" ]]; then \
+RUN if [[ "$(uname -m)" == "x86_64" ]]; then \
     qUrl=https://github.com/c0re100/qBittorrent-Enhanced-Edition/releases/latest/download/qbittorrent-enhanced-nox_x86_64-linux-musl_static.zip; \
     else \
     qUrl=https://github.com/c0re100/qBittorrent-Enhanced-Edition/releases/latest/download/qbittorrent-enhanced-nox_arm-linux-musl_static.zip; \
