@@ -22,7 +22,7 @@ FROM base AS final
 RUN if [[ "$(uname -m)" == "x86_64" ]]; then \
     qUrl=https://github.com/c0re100/qBittorrent-Enhanced-Edition/releases/latest/download/qbittorrent-enhanced-nox_x86_64-linux-musl_static.zip; \
     else \
-    qUrl=https://github.com/c0re100/qBittorrent-Enhanced-Edition/releases/latest/download/qbittorrent-enhanced-nox_arm-linux-musl_static.zip; \
+    qUrl=https://github.com/c0re100/qBittorrent-Enhanced-Edition/releases/latest/download/qbittorrent-enhanced-nox_arm-linux-musleabi_static.zip; \
     fi && \
     curl -L -o /tmp/qb-ee.zip ${qUrl} && \
     unzip /tmp/qb-ee.zip -d /bin/ && \
