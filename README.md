@@ -21,7 +21,7 @@ docker run -d \
 ```
 
 ### Docker Compose
-[docker-compose.yaml](../blob/master/docker-compose.yaml)
+[docker-compose.yaml](./docker-compose.yaml)
 
 ## Web UI Login Credentials
 Scheme: `https`<br>
