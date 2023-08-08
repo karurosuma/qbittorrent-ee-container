@@ -11,7 +11,7 @@ RUN apk repo update && \
     mkdir -p /downloads -p /incomplete -p /root/.config/qBittorrent -p /root/.local/share/qBittorrent && \
     ln -s /root/.config/qBittorrent /config && \
     ln -s /root/.local/share/qBittorrent /data && \
-    chmod +x /entrypoint.sh &&
+    chmod +x /entrypoint.sh
 
 VOLUME [ "/config", "/downloads", "/incomplete", "/data" ]
 
