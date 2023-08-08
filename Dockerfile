@@ -4,17 +4,14 @@ ENV TZ=Etc/UTC
 ENV WEBUI_PORT=8080
 ENV WEBUI_LANG=en
 ENV SESSION_PORT=36847
-ARG OS_USER_ID=1000
 
 COPY entrypoint.sh /
 RUN apk repo update && \
     apk add --no-cache ca-certificates tzdata curl openssl unzip && \
-    adduser -D -s /bin/sh -u ${OS_USER_ID} qbittorrent && \
-    mkdir -p /downloads -p /incomplete -p /home/qbittorrent/.config/qBittorrent -p /home/qbittorrent/.local/share/qBittorrent && \
-    ln -s /home/qbittorrent/.config/qBittorrent /config && \
-    ln -s /home/qbittorrent/.local/share/qBittorrent /data && \
-    chmod +x /entrypoint.sh && \
-    chown -R qbittorrent:qbittorrent /home/qbittorrent /config /downloads /incomplete /data
+    mkdir -p /downloads -p /incomplete -p /root/.config/qBittorrent -p /root/.local/share/qBittorrent && \
+    ln -s /root/.config/qBittorrent /config && \
+    ln -s /root/.local/share/qBittorrent /data && \
+    chmod +x /entrypoint.sh &&
 
 VOLUME [ "/config", "/downloads", "/incomplete", "/data" ]
 
@@ -29,5 +26,4 @@ RUN if [[ "$(uname -m)" == "x86_64" ]]; then \
     chmod +x /bin/qbittorrent-nox && \
     rm -rf /tmp/qb-ee.zip
 
-USER qbittorrent
 ENTRYPOINT ["/entrypoint.sh"]
